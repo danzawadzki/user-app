@@ -1,0 +1,28 @@
+// Palette
+$blue__navy: #002c71;
+$blue__navy--light: #124ba5;
+$blue--light: #8298b9;
+$orange: #ffa640;
+$gray--dark: #444444;
+$gray--light: #d3d3d3;
+$gray--transparent: rgba(172, 172, 172, 0.5);
+
+/**
+ * COLORS
+ */
+
+//Brand
+$brand--main: $blue__navy;
+$brand--accent: $orange;
+$brand__shadows: $gray--transparent;
+
+//App
+$app__background: $blue__navy--light;
+
+//Modules
+$module__background: white;
+
+//Typography
+$typo__heading: $blue--navy;
+$typo__paragraph: $gray--dark;
+$typo__link: $orange;

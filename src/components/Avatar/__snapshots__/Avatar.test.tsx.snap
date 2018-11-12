@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar component:  should render match snapshot 1`] = `
+<div
+  className="Avatar "
+>
+  <img
+    alt="Joe Black avatar"
+    className="Avatar__image "
+    srcSet="https://randomuser.me/api/portraits/thumb/men/65.jpg 480w, https://randomuser.me/api/portraits/med/men/65.jpg 960w, https://randomuser.me/api/portraits/men/65.jpg 1280w"
+  />
+</div>
+`;

@@ -11,9 +11,19 @@ body {
 	font-size: 1.4rem;
 	color: $typo__paragraph;
 	line-height: 2.1rem;
+	background-color: white;
 }
 
 a {
 	color: $typo__link;
 	text-decoration: none;
+}
+
+#root {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 100%;
+	min-height: 100vh;
 }

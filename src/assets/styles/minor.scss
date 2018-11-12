@@ -4,3 +4,10 @@
 $shadow--default: 0 0 0.25rem 0 $brand__shadows;
 
 //Transitions
+$transition--default: all cubic-bezier(0, 0, 1, 1) 0.125s;
+
+//Transform
+$transform__scale: scale(0.95);
+
+//Radius
+$radius--default: 0.5rem;

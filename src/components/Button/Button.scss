@@ -1,0 +1,34 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/minor.scss';
+
+//TODO: Line overwrites rem to be multiple of 10px, not 16px. I keep it in the component styles, as I didn't know how to pass global styles to the react-styleguidist.
+html {
+	font-size: 62.5%;
+}
+
+.Button {
+	padding: 1.4rem 2.7rem;
+	border-radius: 10rem;
+	background-color: $brand--accent;
+	border: none;
+	transition: $transition--default;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	color: #ffffff;
+	letter-spacing: 4.2px;
+	text-transform: uppercase;
+
+	&:hover {
+		filter: brightness(110%);
+	}
+
+	&:active {
+		transition: $transition--default;
+		transform: $transform__scale;
+	}
+
+	&--fullWidth {
+		width: 100%;
+	}
+}

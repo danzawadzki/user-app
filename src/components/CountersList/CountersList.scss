@@ -1,0 +1,22 @@
+@import '../../assets/styles/colors';
+
+.CountersList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+
+	&__item {
+		padding: 0 3rem;
+		border-right: 1px solid $app__borders;
+
+		&:first-of-type {
+			padding-left: 0;
+		}
+
+		&:last-of-type {
+			padding-right: 0;
+			border: none;
+		}
+	}
+}

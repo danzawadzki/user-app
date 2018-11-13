@@ -3,6 +3,7 @@ import './CommentsList.scss';
 import Comment, { IComment } from '../Comment/Comment';
 
 export interface IComments {
+	/** Array of objects representing comments */
 	comments?: Array<IComment>;
 }
 

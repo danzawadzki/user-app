@@ -1,20 +1,22 @@
 import * as React from 'react';
 import './Avatar.scss';
 
+export interface IAvatarSrc {
+	/** Optional image url for small screen devices (screen < 600px) */
+	small?: string;
+	/** Required image ulr for medium screen devices (600px =< dev <= 1600px) or all else if not provided. */
+	regular?: string;
+	/** Optional image url for large screen devices (1900px < screen) */
+	large?: string;
+}
+
 export interface IAvatar {
 	/** User name, who's avatar is displayed for alt attr. */
 	name: string;
 	/** Flag to display smaller avatar. */
 	isSmaller?: Boolean;
 	/** Object containing avatar urls. */
-	avatar?: {
-		/** Optional image url for small screen devices (screen < 600px) */
-		small?: string;
-		/** Required image ulr for medium screen devices (600px =< dev <= 1600px) or all else if not provided. */
-		regular?: string;
-		/** Optional image url for large screen devices (1900px < screen) */
-		large?: string;
-	};
+	avatar?: IAvatarSrc | null;
 }
 
 /**

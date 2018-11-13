@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountersList component:  should render match snapshot 1`] = `
+<ul
+  className="CountersList"
+>
+  <li
+    className="CountersList__item"
+    key="counter-0"
+  >
+    <Counter
+      label="Police"
+      number={997}
+    />
+  </li>
+  <li
+    className="CountersList__item"
+    key="counter-1"
+  >
+    <Counter
+      label="Police"
+      number={997}
+    />
+  </li>
+  <li
+    className="CountersList__item"
+    key="counter-2"
+  >
+    <Counter
+      label="Police"
+      number={997}
+    />
+  </li>
+</ul>
+`;

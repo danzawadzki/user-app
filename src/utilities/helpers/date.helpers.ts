@@ -9,7 +9,6 @@
  * @param {Date} nextDate - The date which the number of days will be related to.
  */
 export const timeAgo = (prevDate: Date, nextDate: Date): string => {
-	debugger;
 	let seconds = Math.floor((+nextDate - +prevDate) / 1000);
 
 	//Return years

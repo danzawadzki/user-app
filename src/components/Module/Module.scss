@@ -3,8 +3,10 @@
 @import '../../assets/styles/minor.scss';
 
 .Module {
+	background-color: $module__background;
 	border-radius: $radius--default;
 	box-shadow: $shadow--default;
-	padding: 2rem;
 	font-family: Montserrat, sans-serif;
+	padding: 2rem;
+	min-width: 100%;
 }

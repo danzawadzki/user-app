@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Module from './Module';
 
-describe('Button component: ', () => {
+describe('Module component: ', () => {
 	//Shallow rendered component
 	const content = <p>Test</p>;
 
@@ -18,5 +18,6 @@ describe('Button component: ', () => {
 
 	it('should render with child component', () => {
 		expect(component.html()).not.toBe(null);
+		expect(component.find(content)).toBeTruthy();
 	});
 });

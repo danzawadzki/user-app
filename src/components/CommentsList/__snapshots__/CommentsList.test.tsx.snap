@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentsList component:  should render match snapshot 1`] = `
+<ul
+  className="CommentsList"
+>
+  <li
+    className="CommentsList__item"
+    key="comment-0"
+  >
+    <Comment
+      author={
+        Object {
+          "avatar": Object {
+            "large": "https://randomuser.me/api/portraits/men/65.jpg",
+            "regular": "https://randomuser.me/api/portraits/med/men/65.jpg",
+            "small": "https://randomuser.me/api/portraits/thumb/men/65.jpg",
+          },
+          "name": "Random User",
+        }
+      }
+      comment="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula."
+      timestamp="10/10/2018"
+    />
+  </li>
+  <li
+    className="CommentsList__item"
+    key="comment-1"
+  >
+    <Comment
+      author={
+        Object {
+          "avatar": Object {
+            "large": "https://randomuser.me/api/portraits/men/65.jpg",
+            "regular": "https://randomuser.me/api/portraits/med/men/65.jpg",
+            "small": "https://randomuser.me/api/portraits/thumb/men/65.jpg",
+          },
+          "name": "Random User",
+        }
+      }
+      comment="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula."
+      timestamp="10/10/2018"
+    />
+  </li>
+  <li
+    className="CommentsList__item"
+    key="comment-2"
+  >
+    <Comment
+      author={
+        Object {
+          "avatar": Object {
+            "large": "https://randomuser.me/api/portraits/men/65.jpg",
+            "regular": "https://randomuser.me/api/portraits/med/men/65.jpg",
+            "small": "https://randomuser.me/api/portraits/thumb/men/65.jpg",
+          },
+          "name": "Random User",
+        }
+      }
+      comment="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula."
+      timestamp="10/10/2018"
+    />
+  </li>
+  <li
+    className="CommentsList__item"
+    key="comment-3"
+  >
+    <Comment
+      author={
+        Object {
+          "avatar": Object {
+            "large": "https://randomuser.me/api/portraits/men/65.jpg",
+            "regular": "https://randomuser.me/api/portraits/med/men/65.jpg",
+            "small": "https://randomuser.me/api/portraits/thumb/men/65.jpg",
+          },
+          "name": "Random User",
+        }
+      }
+      comment="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula."
+      timestamp="10/10/2018"
+    />
+  </li>
+  <li
+    className="CommentsList__item"
+    key="comment-4"
+  >
+    <Comment
+      author={
+        Object {
+          "avatar": Object {
+            "large": "https://randomuser.me/api/portraits/men/65.jpg",
+            "regular": "https://randomuser.me/api/portraits/med/men/65.jpg",
+            "small": "https://randomuser.me/api/portraits/thumb/men/65.jpg",
+          },
+          "name": "Random User",
+        }
+      }
+      comment="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula."
+      timestamp="10/10/2018"
+    />
+  </li>
+</ul>
+`;

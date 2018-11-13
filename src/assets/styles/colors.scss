@@ -6,6 +6,7 @@ $orange: #ffa640;
 $gray--dark: #444444;
 $gray--light: #d3d3d3;
 $gray--transparent: rgba(172, 172, 172, 0.5);
+$silver: #ebebeb;
 
 /**
  * COLORS
@@ -18,6 +19,7 @@ $brand__shadows: $gray--transparent;
 
 //App
 $app__background: $blue__navy--light;
+$app__borders: $silver;
 
 //Modules
 $module__background: white;

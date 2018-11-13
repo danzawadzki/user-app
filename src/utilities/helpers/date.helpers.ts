@@ -33,5 +33,5 @@ export const timeAgo = (prevDate: Date, nextDate: Date): string => {
 	if (interval >= 1) return interval + 'm';
 
 	//Return seconds
-	return Math.floor(seconds) + ' s';
+	return Math.floor(seconds) + 's';
 };

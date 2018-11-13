@@ -1,0 +1,30 @@
+@import '../../assets/styles/colors';
+
+.Comment {
+	&__header {
+		display: flex;
+		align-items: center;
+
+		//Comment Header block
+		& > .header {
+			&__avatar {
+				width: 5rem;
+				flex-grow: 0;
+			}
+
+			&__name {
+				color: $blue__navy;
+				flex-grow: 1;
+			}
+
+			&__date {
+				color: $blue--light;
+				flex-grow: 0;
+			}
+		}
+	}
+
+	&__content {
+		padding-left: 50px;
+	}
+}

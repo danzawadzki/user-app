@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment component:  should render match snapshot 1`] = `
+<div
+  className="Comment"
+>
+  <div
+    className="Comment__header"
+  >
+    <div
+      className="header__avatar"
+    >
+      <Avatar
+        isSmaller={true}
+        name="Joe Black"
+      />
+    </div>
+    <div
+      className="header__name"
+    >
+      Joe Black
+    </div>
+    <div
+      className="header__date"
+    >
+      1m
+    </div>
+  </div>
+  <div
+    className="Comment__content"
+  >
+    Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.
+  </div>
+</div>
+`;

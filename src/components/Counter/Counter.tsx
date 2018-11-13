@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Counter.scss';
 
-export interface IAvatar {
+export interface ICounter {
 	/** Large counter number */
 	number?: number;
 	/** Small label text under the counter */
@@ -13,7 +13,7 @@ export interface IAvatar {
  *
  * @version 1.0.0
  */
-const Counter = ({ number = 0, label }: IAvatar) => (
+const Counter = ({ number = 0, label }: ICounter) => (
 	<div className="Counter">
 		<span className="Counter__number">{number}</span>
 		<span className="Counter__label">{label}</span>

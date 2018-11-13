@@ -1,0 +1,19 @@
+@import '../../assets/styles/colors.scss';
+
+.Counter {
+	display: flex;
+	flex-direction: column;
+
+	&__number {
+		color: $brand--accent;
+		font-size: 2.4rem;
+		line-height: 2.9rem;
+		letter-spacing: 0;
+	}
+	&__label {
+		color: $blue--light;
+		font-size: 1rem;
+		line-height: 1.75rem;
+		letter-spacing: 0;
+	}
+}

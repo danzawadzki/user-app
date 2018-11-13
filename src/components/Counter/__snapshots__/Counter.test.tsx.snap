@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter component:  should render match snapshot 1`] = `
+<div
+  className="Counter"
+>
+  <span
+    className="Counter__number"
+  >
+    997
+  </span>
+  <span
+    className="Counter__label"
+  >
+    Police
+  </span>
+</div>
+`;

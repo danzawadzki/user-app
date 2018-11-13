@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard component:  should render match snapshot 1`] = `
+<div
+  className="UserCard"
+>
+  <div
+    className="UserCard__avatar"
+  >
+    <Avatar
+      avatar={
+        Object {
+          "large": "https://randomuser.me/api/portraits/men/65.jpg",
+          "regular": "https://randomuser.me/api/portraits/med/men/65.jpg",
+          "small": "https://randomuser.me/api/portraits/thumb/men/65.jpg",
+        }
+      }
+      name="Random User"
+    />
+  </div>
+  <div
+    className="UserCard__details"
+  >
+    <div
+      className="details"
+    >
+      <h1
+        className="details__name"
+      >
+        Random User
+         
+        <span
+          className="details__name--lighter"
+          onClick={[Function]}
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "far",
+                "heart",
+              ]
+            }
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+        </span>
+      </h1>
+      <p
+        className="details__location"
+      >
+        New York, USA
+      </p>
+    </div>
+  </div>
+</div>
+`;

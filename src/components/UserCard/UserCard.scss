@@ -1,0 +1,44 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/minor';
+
+.UserCard {
+	display: flex;
+	align-items: center;
+
+	&__avatar {
+		padding-right: 2rem;
+	}
+
+	&__details {
+		& .details {
+			&__name {
+				font-size: 1.8rem;
+				letter-spacing: 0;
+				font-weight: 400;
+				color: $blue__navy;
+				margin: 0;
+				display: flex;
+				align-items: center;
+
+				&--lighter {
+					color: $gray--light;
+					font-size: 1.25rem;
+					margin: 0 0.75rem;
+					transition: $transition--default;
+					cursor: pointer;
+
+					&:hover {
+						color: $brand--accent;
+						transition: $transition--default;
+					}
+				}
+			}
+
+			&__location {
+				font-size: 1.2rem;
+				color: $blue--light;
+				margin: 0;
+			}
+		}
+	}
+}

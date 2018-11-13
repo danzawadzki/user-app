@@ -22,3 +22,4 @@ pids
 
 # Node modules 
 node_modules
+coverage

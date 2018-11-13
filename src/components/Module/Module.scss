@@ -1,0 +1,10 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/base.scss';
+@import '../../assets/styles/minor.scss';
+
+.Module {
+	border-radius: $radius--default;
+	box-shadow: $shadow--default;
+	padding: 2rem;
+	font-family: Montserrat, sans-serif;
+}

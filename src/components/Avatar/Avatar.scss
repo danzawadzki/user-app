@@ -1,8 +1,3 @@
-//TODO: Line overwrites rem to be multiple of 10px, not 16px. I keep it in the component styles, as I didn't know how to pass global styles to the react-styleguidist.
-html {
-	font-size: 62.5%;
-}
-
 .Avatar {
 	background-image: url('../../assets/img/user_placeholder.png');
 	background-size: cover;

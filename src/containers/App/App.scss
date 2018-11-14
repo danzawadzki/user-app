@@ -30,3 +30,11 @@
 		overflow: scroll;
 	}
 }
+
+@media (max-width: 32rem) {
+	.App {
+		& .userProfile__counters {
+			flex-direction: column;
+		}
+	}
+}

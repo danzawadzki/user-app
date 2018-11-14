@@ -30,8 +30,7 @@ export default class Accordion extends Component<IAccordionProps, IAccordionStat
 	/**
 	 * Function to handle visibility flag toggling
 	 */
-	toggleIsOpenFlag = (e: React.MouseEvent<HTMLAnchorElement>) => {
-		//e.preventDefault();
+	toggleIsOpenFlag = () => {
 		this.setState(prevState => ({
 			isOpen: !prevState.isOpen
 		}));

@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Module from '../../components/Module/Module';
-import CommentsList from '../../components/CommentsList/CommentsList';
 import AppUserProfile from './AppUserProfile';
-import Accordion from '../Accordion/Accordion';
+import AppComments from './AppComments';
 
 /**
- * 1. Textarea to send comments
- * 4. Mobile version
  * 5. Redux integration
  *    5.1 mockup api
  *    5.2 create action to fetchComments
@@ -15,7 +11,40 @@ import Accordion from '../Accordion/Accordion';
  *    5.4 create action to fetchUser
  */
 
-export default class App extends Component {
+export interface IAppState {
+	commentForm?: string;
+}
+
+export default class App extends Component<any, IAppState> {
+	/**
+	 * Handler to input onChange event.
+	 * @param e
+	 */
+	handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		e.persist();
+		this.setState(() => ({
+			[e.target.id]: e.target.value
+		}));
+	};
+	/**
+	 * Handler to form onSubmit event.
+	 * @param e
+	 */
+	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		this.setState({
+			commentForm: ''
+		});
+	};
+
+	constructor(props: any) {
+		super(props);
+
+		this.state = {
+			commentForm: ''
+		};
+	}
+
 	render() {
 		const user = {
 			author: {
@@ -31,20 +60,17 @@ export default class App extends Component {
 			timestamp: '10/10/2018'
 		};
 
-		const comments = [user, user, user, user];
+		const comments = [user, user];
 
 		return (
 			<div className="App">
 				<AppUserProfile />
-				<Module id="Comments">
-					<Accordion
-						heading={{
-							on: `Hide comments (${comments.length})`,
-							off: `Show comments (${comments.length})`
-						}}>
-						<CommentsList comments={comments} />
-					</Accordion>
-				</Module>
+				<AppComments
+					commentForm={this.state.commentForm}
+					comments={comments}
+					onChange={this.handleChange}
+					onSubmit={this.handleSubmit}
+				/>
 			</div>
 		);
 	}

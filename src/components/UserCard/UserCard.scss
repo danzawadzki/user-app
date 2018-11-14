@@ -42,3 +42,22 @@
 		}
 	}
 }
+
+@media (max-width: 32rem) {
+	.UserCard {
+		flex-direction: column;
+
+		&__avatar {
+			margin-bottom: 1rem;
+			margin-top: -4rem;
+		}
+
+		&__details {
+			text-align: center;
+
+			& .details__name {
+				margin-right: -2rem;
+			}
+		}
+	}
+}

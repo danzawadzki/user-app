@@ -30,7 +30,8 @@ You will also see any lint errors in the console.
 
 ### `npm run server`
 
-Runs the app fake rest api on the [http://localhost:8080](http://localhost:8080). The json file that I use as a makeshift base is in the folder `src/json_server/db.json`.
+Runs the app fake rest api on the [http://localhost:8080](http://localhost:8080). The json file that I use as a database mockup is in the folder `src/json_server/db.json`.</br>
+To better simulate a request action to external restful api, all server responses have been delayed by 1000ms.
 
 ### `npm test`
 

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard component:  should render match snapshot 1`] = `
+<div
+  className="WithLoader"
+>
+  <div
+    className="WithLoader__spinner"
+  />
+</div>
+`;

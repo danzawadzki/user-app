@@ -1,9 +1,9 @@
 import Accordion from '../Accordion/Accordion';
 import CommentsList from '../../components/CommentsList/CommentsList';
 import MessageInput from '../../components/MessageInput/MessageInput';
-import Module from '../../components/Module/Module';
 import React from 'react';
 import { IComment } from '../../components/Comment/Comment';
+import WithLoader from '../../components/WithLoader/WithLoader';
 
 export interface IAppComments {
 	/** Comments array */
@@ -21,7 +21,7 @@ export interface IAppComments {
  * @constructor
  */
 const AppComments = ({ comments, commentForm, onChange, onSubmit }: IAppComments) => (
-	<Module id="Comments">
+	<>
 		<Accordion
 			heading={{
 				on: `Hide comments (${comments ? comments.length : 0})`,
@@ -36,7 +36,7 @@ const AppComments = ({ comments, commentForm, onChange, onSubmit }: IAppComments
 			onChange={onChange}
 			onSubmit={onSubmit}
 		/>
-	</Module>
+	</>
 );
 
-export default AppComments;
+export default WithLoader(AppComments);

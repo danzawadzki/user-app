@@ -9,7 +9,7 @@ export interface IUserCard {
 	/** User name */
 	name: string;
 	/** User location */
-	location?: string;
+	location?: string | null;
 	/** Object containing avatar source */
 	avatar?: IAvatarSrc;
 	/** Handler to heart icon onClick action */

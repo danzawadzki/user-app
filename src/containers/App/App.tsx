@@ -2,17 +2,33 @@ import React, { Component } from 'react';
 import './App.scss';
 import AppUserProfile from './AppUserProfile';
 import AppComments from './AppComments';
+import { IComment } from '../../components/Comment/Comment';
+import Module from '../../components/Module/Module';
+import { IAvatarSrc } from '../../components/Avatar/Avatar';
+import { ICounter } from '../../components/Counter/Counter';
 
-/**
- * 5. Redux integration
- *    5.1 mockup api
- *    5.2 create action to fetchComments
- *    5.3 create action to addComment
- *    5.4 create action to fetchUser
- */
+export interface IAppUser {
+	/** User name */
+	name: string;
+	/** User location */
+	location?: string;
+	/** User avatar */
+	avatar?: IAvatarSrc;
+	/** Comment content body */
+	counters: Array<ICounter>;
+}
 
 export interface IAppState {
+	/** Controlled input value with comment to post */
 	commentForm?: string;
+	user: {
+		isLoading: boolean;
+		payload: IAppUser;
+	};
+	comments: {
+		isLoading: boolean;
+		payload: Array<IComment> | [];
+	};
 }
 
 export default class App extends Component<any, IAppState> {
@@ -22,7 +38,8 @@ export default class App extends Component<any, IAppState> {
 	 */
 	handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.persist();
-		this.setState(() => ({
+		this.setState(prevState => ({
+			...prevState,
 			[e.target.id]: e.target.value
 		}));
 	};
@@ -37,40 +54,96 @@ export default class App extends Component<any, IAppState> {
 		});
 	};
 
+	/**
+	 * Handler to counter increment event.
+	 * @param {string} label - Counter label
+	 */
+	handleIncrement = (label: string) => {
+		if (this.state.user.payload && this.state.user.payload.counters) {
+			//Making copy of counters by spreading them
+			const counters = [...this.state.user.payload.counters];
+
+			//Updating counter where counter.label equals function arg label
+			counters.forEach(item => {
+				if (item.label.toLowerCase() === label.toLowerCase()) {
+					item.number ? item.number++ : 1;
+				}
+			});
+
+			//Spreading user object
+			const user = {
+				...this.state.user
+			};
+			//Attaching updated counters
+			user.payload.counters = counters;
+			//Overwriting user property
+			this.setState(() => ({
+				user
+			}));
+		}
+	};
+
 	constructor(props: any) {
 		super(props);
 
 		this.state = {
-			commentForm: ''
+			commentForm: '',
+			user: {
+				isLoading: true,
+				payload: { name: '', location: '', avatar: {}, counters: [] }
+			},
+			comments: {
+				isLoading: true,
+				payload: []
+			}
 		};
 	}
 
+	async componentDidMount() {
+		//Fetching user profile info
+		const userResponse = await fetch('http://localhost:8080/users/1').then(res =>
+			res.json()
+		);
+
+		this.setState(() => ({
+			user: {
+				isLoading: false,
+				payload: userResponse
+			}
+		}));
+
+		//Fetching user profile comments
+		const commentsResponse = await fetch('http://localhost:8080/comments').then(res =>
+			res.json()
+		);
+
+		this.setState(() => ({
+			comments: {
+				isLoading: false,
+				payload: commentsResponse
+			}
+		}));
+	}
+
 	render() {
-		const user = {
-			author: {
-				name: 'Random User',
-				avatar: {
-					small: 'https://randomuser.me/api/portraits/thumb/men/65.jpg',
-					regular: 'https://randomuser.me/api/portraits/med/men/65.jpg',
-					large: 'https://randomuser.me/api/portraits/men/65.jpg'
-				}
-			},
-			comment:
-				'Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.',
-			timestamp: '10/10/2018'
-		};
-
-		const comments = [user, user];
-
 		return (
 			<div className="App">
-				<AppUserProfile />
-				<AppComments
-					commentForm={this.state.commentForm}
-					comments={comments}
-					onChange={this.handleChange}
-					onSubmit={this.handleSubmit}
-				/>
+				<Module id="UserProfile">
+					<AppUserProfile
+						handleIncrement={this.handleIncrement}
+						isLoading={this.state.user.isLoading}
+						user={this.state.user.payload}
+					/>
+				</Module>
+				<Module id="Comments">
+					<AppComments
+						isLoading={this.state.comments.isLoading}
+						commentForm={this.state.commentForm}
+						comments={this.state.comments.payload}
+						onChange={this.handleChange}
+						onSubmit={this.handleSubmit}
+					/>
+				</Module>
 			</div>
 		);
 	}

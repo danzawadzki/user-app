@@ -14,7 +14,7 @@ export interface IAvatar {
 	/** User name, who's avatar is displayed for alt attr. */
 	name: string;
 	/** Flag to display smaller avatar. */
-	isSmaller?: Boolean;
+	isSmaller?: boolean;
 	/** Object containing avatar urls. */
 	avatar?: IAvatarSrc | null;
 }
@@ -25,12 +25,18 @@ export interface IAvatar {
  * @version 1.0.0
  */
 const Avatar = ({ name, isSmaller = false, avatar }: IAvatar) => {
-	//Creating srcSet
+	// Creating srcSet
 	let srcSet = '';
 	if (avatar) {
-		if (avatar.small) srcSet = `${avatar.small} 480w, `;
-		if (avatar.regular) srcSet += `${avatar.regular} 960w, `;
-		if (avatar.regular) srcSet += `${avatar.large} 1280w`;
+		if (avatar.small) {
+			srcSet = `${avatar.small} 480w, `;
+		}
+		if (avatar.regular) {
+			srcSet += `${avatar.regular} 960w, `;
+		}
+		if (avatar.regular) {
+			srcSet += `${avatar.large} 1280w`;
+		}
 	}
 
 	return (

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Avatar from './Avatar';
 
 describe('Avatar component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const name = 'Joe Black';
 	const avatars = {
 		small: 'https://randomuser.me/api/portraits/thumb/men/65.jpg',
@@ -29,7 +29,7 @@ describe('Avatar component: ', () => {
 
 		expect(componentOnlyWithName).toBeDefined();
 
-		//To not contain any images
+		// To not contain any images
 		expect(componentOnlyWithName.find('img').exists()).toBeFalsy();
 		expect(componentOnlyWithName.find('.Avatar__image').exists()).toBeFalsy();
 	});

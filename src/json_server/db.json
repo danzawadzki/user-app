@@ -1,14 +1,28 @@
 {
 	"users": [
 		{
-			"author": {
-				"name": "Harvey Specter",
-				"avatar": {
-					"small": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
-					"regular": "https://randomuser.me/api/portraits/med/men/1.jpg",
-					"large": "https://randomuser.me/api/portraits/men/1.jpg"
+			"id": 1,
+			"name": "Harvey Specter",
+			"location": "Los Angeles, USA",
+			"avatar": {
+				"small": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
+				"regular": "https://randomuser.me/api/portraits/med/men/1.jpg",
+				"large": "https://randomuser.me/api/portraits/men/1.jpg"
+			},
+			"counters": [
+				{
+					"label": "Likes",
+					"number": 121
+				},
+				{
+					"label": "Following",
+					"number": 723
+				},
+				{
+					"label": "Followers",
+					"number": 4433
 				}
-			}
+			]
 		}
 	],
 	"comments": [

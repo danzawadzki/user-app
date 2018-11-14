@@ -18,6 +18,14 @@ a {
 	text-decoration: none;
 }
 
+button,
+input {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
 #root {
 	background-color: white;
 	display: flex;

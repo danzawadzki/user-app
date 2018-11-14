@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageInput component:  should render match snapshot 1`] = `
+<form
+  className="MessageInput"
+  onSubmit={[Function]}
+>
+  <input
+    className="MessageInput__input"
+    id="TestInput"
+    onChange={[Function]}
+    placeholder="Type comment..."
+    value="Test"
+  />
+</form>
+`;

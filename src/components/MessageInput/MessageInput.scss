@@ -1,0 +1,23 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/minor';
+
+.MessageInput {
+	margin-top: 2rem;
+	&__input {
+		border: none;
+		color: $blue--light;
+		width: 100%;
+		padding: 1rem 0;
+		font-size: 1.8rem;
+		border-bottom: 2px solid $app__borders;
+		transition: $transition--default;
+
+		&::placeholder {
+			color: $blue--light;
+		}
+
+		&:focus {
+			border-bottom: 2px solid $brand--accent;
+		}
+	}
+}

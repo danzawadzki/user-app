@@ -3,6 +3,7 @@
 exports[`Module component:  should render match snapshot 1`] = `
 <div
   className="Module"
+  id=""
 >
   <p>
     Test

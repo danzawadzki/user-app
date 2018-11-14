@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard component:  should render match snapshot 1`] = `
+<div
+  className="Accordion"
+>
+  <a
+    className="Accordion__heading"
+    onClick={[Function]}
+  >
+    Hide
+  </a>
+  <div
+    className="Accordion__body Accordion__body--visible"
+  >
+    Accordion test body content.
+  </div>
+</div>
+`;

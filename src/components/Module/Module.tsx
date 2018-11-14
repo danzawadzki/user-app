@@ -2,6 +2,8 @@ import * as React from 'react';
 import './Module.scss';
 
 export interface IModule {
+	/** Module custom id */
+	id?: string;
 	/** Module child html node. */
 	children: JSX.Element | JSX.Element[] | string;
 }
@@ -12,6 +14,10 @@ export interface IModule {
  *
  * @version 1.0.0
  */
-const Module = ({ children }: IModule) => <div className="Module">{children}</div>;
+const Module = ({ id, children }: IModule) => (
+	<div id={id || ''} className="Module">
+		{children}
+	</div>
+);
 
 export default Module;

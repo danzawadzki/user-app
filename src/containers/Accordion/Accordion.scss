@@ -1,0 +1,25 @@
+@import '../../assets/styles/colors';
+
+.Accordion {
+	&__heading {
+		color: $brand--accent;
+		text-decoration: underline;
+		cursor: pointer;
+
+		&:hover {
+			color: lighten($brand--accent, 10);
+		}
+	}
+
+	&__body {
+		transition: height ease-out 1s;
+		overflow: auto;
+
+		&--visible {
+		}
+		&--hidden {
+			transition: height ease-out 1s;
+			height: 0;
+		}
+	}
+}

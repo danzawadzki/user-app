@@ -38,14 +38,4 @@ describe('UserCard component: ', () => {
 
 		expect(componentWithOutLocation.html()).toContain('Unknown');
 	});
-
-	// it('should have length of counters array', () => {
-	// 	expect(component.find('li')).toHaveLength(counters.length);
-	// });
-	//
-	// it('should render message "No counters...", if no counters were provided', () => {
-	// 	const componentEmpty = shallow(<CountersList />);
-	//
-	// 	expect(componentEmpty.html()).toContain('No counters...');
-	// });
 });

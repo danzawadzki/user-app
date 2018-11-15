@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Comment from './Comment';
 
 describe('Comment component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const author = {
 		name: 'Joe Black',
 		avatars: {

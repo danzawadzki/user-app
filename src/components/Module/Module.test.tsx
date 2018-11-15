@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Module from './Module';
 
 describe('Module component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const content = <p>Test</p>;
 
 	const component = shallow(<Module>{content}</Module>);

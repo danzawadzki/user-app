@@ -7,7 +7,7 @@ import WithLoader from '../../components/WithLoader/WithLoader';
 
 export interface IAppComments {
 	/** Comments array */
-	comments?: Array<IComment>;
+	comments?: IComment[];
 	/** Value of comment form */
 	commentForm?: string;
 	/** Handler to a onChange event. */

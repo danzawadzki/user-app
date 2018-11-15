@@ -1,6 +1,6 @@
 An application displaying a user profile with comments.
 
-## Technologies & related stuff
+## ‍💻 Technologies & related stuff
 
 1. React
 2. Typescript (with tslint)
@@ -13,10 +13,21 @@ An application displaying a user profile with comments.
 9. prettier
 10. react-stylegudist
 
-## Note
+## 📝 Architectural decisions
+
+The project was to use the best React assumptions in the form of focusing on the division into as many components as possible. Each component has been provided with:
+1. `.tsx` file with component logic and static typing.
+2. `.scss` file with separated styles.
+3. `.test.tsx` file with unit tests.
+4. `.md` file with documentation containing live examples
+
 The assumption of the application was to use as few external dependencies as possible, which is why I decided to not use the bootstrap framework and few other commonly used libraries.
 
-## Available Scripts
+## ⚡ ️How to run it
+
+To launch application you have to first start server with `npm run server` and after that, run app in the development mode `npm start`.
+
+## 🔨 Available Scripts
 
 In the project directory, you can run:
 
@@ -25,18 +36,18 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
 ### `npm run server`
 
-Runs the app fake rest api on the [http://localhost:8080](http://localhost:8080). The json file that I use as a database mockup is in the folder `src/json_server/db.json`.</br>
-To better simulate a request action to external restful api, all server responses have been delayed by 1000ms.
+Runs the app fake rest api on the [http://localhost:8080](http://localhost:8080). Path of the json file, which i use as a db mockup `src/json_server/db.json`.</br>
+To better simulate a http request to an external restful api, all server responses have been delayed by 1000ms.
 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm test --coverage`
+
+Launches the test runner and shows project tests coverage.<br>
 
 ### `npm run build`
 
@@ -48,11 +59,11 @@ Your app is ready to be deployed!
 
 ### `npm run styleguide`
 
-Runs the react-styleguidist docs server on the [http://localhost:6060](http://localhost:6060)
+Runs the react-styleguidist local docs server on the [http://localhost:6060](http://localhost:6060)
 
 ### `npm run styleguide:build`
 
-Builds the react-styleguidist docs to the `styleguide` folder.
+Builds the react-styleguidist docs in the `src/styleguide` folder.
 
 ### `npm run lint`
 
@@ -60,8 +71,27 @@ Runs tslint static analyze, through components and containers folders.
 
 ### `npm run analyze`
 
-Builds project source map.
+Runs source-map-explorer to show, where code bloat is coming from. To analyze the bundle run the production build then run the analyze script.
 
-## How to run it
+## 📕 TODO
 
-To launch application you have to first start server with `npm run server` and after that, run app in the development mode.
+List of the things to add and errors to remove in the project.
+
+1. Get rid of the nested state in the App.tsx component. The easiest way to do this is by using flux architecture (the work already takes place on the branch `redux-integration`)
+2. Divide the App.tsx container into several independent components, that are not part of the view.
+3. Add sorting of comments by publishing dates.
+4. Separate data fetching module.
+5. Improve accessibility for people with disabilities.
+6. Rise application test coverage to at least 75% and update interactive tests.
+
+## ✋ Social profiles:
+
+Portfolio: [danielzawadzki.com](http://danielzawadzki.com/)<br/>
+Twitter: [@danzawadzki9](https://twitter.com/danzawadzki7)<br/>
+Codepen: [@danzawadzki](https://codepen.io/danzawadzki/)<br/>
+Medium: [@danzawadzki](https://medium.com/@danzawadzki)<br/>
+Linkedin: [@danzawadzki](https://www.linkedin.com/in/danzawadzki/)
+
+## License
+
+This project is licensed under the MIT License.

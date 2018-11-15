@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import CountersList from './CountersList';
 
 describe('CountersList component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const counter = {
 		number: 997,
 		label: 'Police'

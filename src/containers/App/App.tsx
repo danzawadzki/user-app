@@ -15,7 +15,7 @@ export interface IAppUser {
 	/** User avatar */
 	avatar?: IAvatarSrc;
 	/** Comment content body */
-	counters: Array<ICounter>;
+	counters: ICounter[];
 }
 
 export interface IAppState {
@@ -27,7 +27,7 @@ export interface IAppState {
 	};
 	comments: {
 		isLoading: boolean;
-		payload: Array<IComment> | [];
+		payload: IComment[] | [];
 	};
 }
 
@@ -40,14 +40,14 @@ export default class App extends Component<any, IAppState> {
 		e.preventDefault();
 
 		if (this.state.commentForm) {
-			//Creating date
+			// Creating date
 			const today = new Date();
 			const timestamp =
 				[today.getHours(), today.getMinutes(), today.getSeconds()].join(':') +
 				' ' +
 				[today.getMonth() + 1, today.getDate(), today.getFullYear()].join('/');
 
-			//Spreading comments payload and creating new
+			// Spreading comments payload and creating new
 			const comments = {
 				isLoading: false,
 				payload: [
@@ -58,7 +58,7 @@ export default class App extends Component<any, IAppState> {
 							name: this.state.user.payload.name
 						},
 						comment: this.state.commentForm ? this.state.commentForm : '',
-						timestamp: timestamp
+						timestamp
 					}
 				]
 			};
@@ -99,9 +99,37 @@ export default class App extends Component<any, IAppState> {
 			[e.target.id]: e.target.value
 		}));
 	};
+	/**
+	 * Handler to counter increment event.
+	 * @param {string} label - Counter label
+	 */
+	handleIncrement = (label: string) => {
+		if (this.state.user.payload && this.state.user.payload.counters) {
+			// Making copy of counters by spreading them
+			const counters = [...this.state.user.payload.counters];
+
+			// Updating counter where counter.label equals function arg label
+			counters.forEach(item => {
+				if (item.label.toLowerCase() === label.toLowerCase()) {
+					item.number ? item.number++ : (item.number = 1);
+				}
+			});
+
+			// Spreading user object
+			const user = {
+				...this.state.user
+			};
+			// Attaching updated counters
+			user.payload.counters = counters;
+			// Overwriting user property
+			this.setState(() => ({
+				user
+			}));
+		}
+	};
 
 	async componentDidMount() {
-		//Fetching user profile info
+		// Fetching user profile info
 		const userResponse = await fetch('http://localhost:8080/users/1').then(res =>
 			res.json()
 		);
@@ -113,7 +141,7 @@ export default class App extends Component<any, IAppState> {
 			}
 		}));
 
-		//Fetching user profile comments
+		// Fetching user profile comments
 		const commentsResponse = await fetch('http://localhost:8080/comments').then(res =>
 			res.json()
 		);
@@ -125,35 +153,6 @@ export default class App extends Component<any, IAppState> {
 			}
 		}));
 	}
-
-	/**
-	 * Handler to counter increment event.
-	 * @param {string} label - Counter label
-	 */
-	handleIncrement = (label: string) => {
-		if (this.state.user.payload && this.state.user.payload.counters) {
-			//Making copy of counters by spreading them
-			const counters = [...this.state.user.payload.counters];
-
-			//Updating counter where counter.label equals function arg label
-			counters.forEach(item => {
-				if (item.label.toLowerCase() === label.toLowerCase()) {
-					item.number ? item.number++ : 1;
-				}
-			});
-
-			//Spreading user object
-			const user = {
-				...this.state.user
-			};
-			//Attaching updated counters
-			user.payload.counters = counters;
-			//Overwriting user property
-			this.setState(() => ({
-				user
-			}));
-		}
-	};
 
 	render() {
 		return (

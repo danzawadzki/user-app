@@ -9,28 +9,38 @@
  * @param {Date} nextDate - The date which the number of days will be related to.
  */
 export const timeAgo = (prevDate: Date, nextDate: Date): string => {
-	let seconds = Math.floor((+nextDate - +prevDate) / 1000);
+	const seconds = Math.floor((+nextDate - +prevDate) / 1000);
 
-	//Return years
+	// Return years
 	let interval = Math.floor(seconds / 31536000);
-	if (interval >= 1) return interval + 'y';
+	if (interval >= 1) {
+		return interval + 'y';
+	}
 
-	//Return months
+	// Return months
 	interval = Math.floor(seconds / 2592000);
-	if (interval >= 1) return interval + 'm';
+	if (interval >= 1) {
+		return interval + 'm';
+	}
 
-	//Return days
+	// Return days
 	interval = Math.floor(seconds / 86400);
-	if (interval >= 1) return interval + 'd';
+	if (interval >= 1) {
+		return interval + 'd';
+	}
 
-	//Return hours
+	// Return hours
 	interval = Math.floor(seconds / 3600);
-	if (interval >= 1) return interval + 'h';
+	if (interval >= 1) {
+		return interval + 'h';
+	}
 
-	//Return minutes
+	// Return minutes
 	interval = Math.floor(seconds / 60);
-	if (interval >= 1) return interval + 'm';
+	if (interval >= 1) {
+		return interval + 'm';
+	}
 
-	//Return seconds
+	// Return seconds
 	return Math.floor(seconds) + 's';
 };

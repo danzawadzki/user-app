@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import MessageInput from './MessageInput';
 
 describe('MessageInput component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const value = 'Test';
 	const id = 'TestInput';
 	const placeholder = 'Type comment...';

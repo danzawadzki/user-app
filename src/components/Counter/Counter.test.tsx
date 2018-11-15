@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 import Counter from './Counter';
 
 describe('Counter component: ', () => {
-	//Shallow rendered component
-	const number = 997;
+	// Shallow rendered component
+	const num = 997;
 	const label = 'Police';
 
-	const component = shallow(<Counter number={number} label={label} />);
+	const component = shallow(<Counter number={num} label={label} />);
 
 	it('should render match snapshot', () => {
 		expect(component).toMatchSnapshot();
@@ -19,7 +19,7 @@ describe('Counter component: ', () => {
 
 	it('should render with number and label', () => {
 		expect(component.find('.Module__number')).not.toBe(null);
-		expect(component.html()).toContain(number);
+		expect(component.html()).toContain(num);
 		expect(component.html()).toContain(label);
 	});
 

@@ -1,11 +1,19 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "rules": {
-    "ordered-imports": false,
-    "object-literal-key-quotes": false,
-    "member-ordering": false,
-    "no-console": false,
-    "member-access": [true, "no-public"],
-    "jsx-no-lambda": false
-  }
+	"extends": [
+		"tslint:recommended",
+		"tslint-react",
+		"tslint-config-prettier"
+	],
+	"rules": {
+		"ordered-imports": false,
+		"object-literal-key-quotes": false,
+		"member-ordering": false,
+		"no-console": false,
+		"member-access": [
+			true,
+			"no-public"
+		],
+		"jsx-no-lambda": false,
+		"object-literal-sort-keys": false
+	}
 }

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import UserCard from './UserCard';
 
 describe('UserCard component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const name = 'Random User';
 	const location = 'New York, USA';
 	const avatar = {

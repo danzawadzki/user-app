@@ -7,12 +7,12 @@ export interface IAccordionProps {
 	/** Accordion heading */
 	heading: {
 		/** To display, when accordion is open */
-		on: String;
+		on: string;
 		/** To display, when accordion is closed */
-		off: String;
+		off: string;
 	};
 	/** Accordion body content */
-	children: JSX.Element | JSX.Element[] | String;
+	children: JSX.Element | JSX.Element[] | string;
 }
 
 /** Interface for accordion state */

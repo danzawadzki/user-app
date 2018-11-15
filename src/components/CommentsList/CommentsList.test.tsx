@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import CommentsList from './CommentsList';
 
 describe('CommentsList component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const user = {
 		author: {
 			name: 'Random User',

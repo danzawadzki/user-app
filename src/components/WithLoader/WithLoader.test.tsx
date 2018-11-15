@@ -4,7 +4,7 @@ import WithLoader from './WithLoader';
 import Counter from '../Counter/Counter';
 
 describe('WithLoader component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const Test = WithLoader(Counter);
 	const label = 'Label';
 	const counter = 997;

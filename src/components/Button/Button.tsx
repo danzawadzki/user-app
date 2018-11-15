@@ -5,9 +5,9 @@ export interface IButton {
 	/** DOM element id. */
 	id: string;
 	/** Flag to display fullwidth button. */
-	isFullWidth?: Boolean;
+	isFullWidth?: boolean;
 	/** Button child html node. */
-	children: String;
+	children: string;
 	/** Handler to the onClick event */
 	onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

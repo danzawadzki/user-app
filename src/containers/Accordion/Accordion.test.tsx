@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Accordion from './Accordion';
 
 describe('UserCard component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const heading = { on: 'Hide', off: 'Show' };
 	const body = 'Accordion test body content.';
 

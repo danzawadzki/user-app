@@ -4,7 +4,7 @@ import Counter, { ICounter } from '../Counter/Counter';
 
 export interface ICountersList {
 	/** Array of objects representing counters */
-	counters?: Array<ICounter>;
+	counters?: ICounter[];
 }
 
 /**
@@ -13,9 +13,9 @@ export interface ICountersList {
  * @version 1.0.0
  */
 const CountersList = ({ counters = [] }: ICountersList) => {
-	if (counters.length === 0)
+	if (counters.length === 0) {
 		return <p className="CountersList__message">No counters...</p>;
-
+	}
 	return (
 		<ul className="CountersList">
 			{counters.map(({ number, label }: ICounter, index) => (

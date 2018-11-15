@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Button from './Button';
 
 describe('Button component: ', () => {
-	//Shallow rendered component
+	// Shallow rendered component
 	const label = 'Push me!';
 
 	const component = shallow(

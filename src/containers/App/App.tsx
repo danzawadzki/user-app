@@ -7,6 +7,7 @@ import Module from '../../components/Module/Module';
 import { IAvatarSrc } from '../../components/Avatar/Avatar';
 import { ICounter } from '../../components/Counter/Counter';
 import { addComment, fetchComments } from '../../actions/comments.actions';
+import { fetchUser, incrementUserCounter } from '../../actions/user.actions';
 
 export interface IAppUser {
 	/** User name */
@@ -16,19 +17,18 @@ export interface IAppUser {
 	/** User avatar */
 	avatar?: IAvatarSrc;
 	/** Comment content body */
-	counters: ICounter[];
+	counters?: ICounter[];
 }
 
 export interface IAppState {
 	/** Controlled input value with comment to post */
 	commentForm?: string;
-	user: {
-		isLoading: boolean;
-		payload: IAppUser;
-	};
 }
 
 class App extends Component<any, IAppState> {
+	state = {
+		commentForm: ''
+	};
 	/**
 	 * Handler to form onSubmit event.
 	 * @param e
@@ -36,30 +36,26 @@ class App extends Component<any, IAppState> {
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		// Spreading state and props
-		const { commentForm, user } = this.state;
-		const { addComment } = this.props;
+		const { commentForm } = this.state;
+		const { user, addComment } = this.props;
 
 		// Validate if comment contains body
 		if (!commentForm) {
 			return console.log('Type something!');
 		}
-		addComment({ avatar: user.payload.avatar, name: user.payload.name }, commentForm);
+		addComment({ avatar: user.data.avatar, name: user.data.name }, commentForm);
 		// Setting up state
 		this.setState({
 			commentForm: ''
 		});
 	};
 
-	constructor(props: any) {
-		super(props);
-
-		this.state = {
-			commentForm: '',
-			user: {
-				isLoading: true,
-				payload: { name: '', location: '', avatar: {}, counters: [] }
-			}
-		};
+	/**
+	 * Fetching commens and user profile info on component mount
+	 */
+	async componentDidMount() {
+		this.props.fetchUser();
+		this.props.fetchComments();
 	}
 
 	/**
@@ -73,59 +69,15 @@ class App extends Component<any, IAppState> {
 			[e.target.id]: e.target.value
 		}));
 	};
-	/**
-	 * Handler to counter increment event.
-	 * @param {string} label - Counter label
-	 */
-	handleIncrement = (label: string) => {
-		if (this.state.user.payload && this.state.user.payload.counters) {
-			// Making copy of counters by spreading them
-			const counters = [...this.state.user.payload.counters];
-
-			// Updating counter where counter.label equals function arg label
-			counters.forEach(item => {
-				if (item.label.toLowerCase() === label.toLowerCase()) {
-					item.number ? item.number++ : (item.number = 1);
-				}
-			});
-
-			// Spreading user object
-			const user = {
-				...this.state.user
-			};
-			// Attaching updated counters
-			user.payload.counters = counters;
-			// Overwriting user property
-			this.setState(() => ({
-				user
-			}));
-		}
-	};
-
-	async componentDidMount() {
-		console.log(this.props);
-		this.props.fetchComments();
-		// Fetching user profile info
-		const userResponse = await fetch('http://localhost:8080/users/1').then(res =>
-			res.json()
-		);
-
-		this.setState(() => ({
-			user: {
-				isLoading: false,
-				payload: userResponse
-			}
-		}));
-	}
 
 	render() {
 		return (
 			<div className="App">
 				<Module id="UserProfile">
 					<AppUserProfile
-						handleIncrement={this.handleIncrement}
-						isLoading={this.state.user.isLoading}
-						user={this.state.user.payload}
+						handleIncrement={this.props.incrementUserCounter}
+						isLoading={this.props.user.isLoading}
+						user={this.props.user.data}
 					/>
 				</Module>
 				<Module id="Comments">
@@ -144,17 +96,19 @@ class App extends Component<any, IAppState> {
 
 /**
  * Mapping redux state to props.
- *
  */
 const mapStateToProps = (state: any) => {
 	return {
-		comments: state.fetchCommentsReducer
+		comments: state.comments,
+		user: state.user
 	};
 };
 
 export default connect(
 	mapStateToProps,
 	{
+		fetchUser,
+		incrementUserCounter,
 		fetchComments,
 		addComment
 	}

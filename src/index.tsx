@@ -6,19 +6,15 @@ import './assets/styles/typography.scss';
 import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import fetchCommentsReducer from './reducers/comments.reducer';
 import { createLogger } from 'redux-logger';
+import { rootReducer } from './reducers/root.reducer';
 
 /**
  * Creating redux store
  */
-const store = createStore(
-	combineReducers({ fetchCommentsReducer }),
-	{},
-	applyMiddleware(ReduxThunk, createLogger())
-);
+const store = createStore(rootReducer, {}, applyMiddleware(ReduxThunk, createLogger()));
 
 /**
  * Rendering app

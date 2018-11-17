@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.scss';
 import { connect } from 'react-redux';
 import AppUserProfile from './AppUserProfile';
-import AppComments from './AppComments';
 import Module from '../../components/Module/Module';
 import { IAvatarSrc } from '../../components/Avatar/Avatar';
 import { ICounter } from '../../components/Counter/Counter';
 import { addComment, fetchComments } from '../../actions/comments.actions';
 import { fetchUser, incrementUserCounter } from '../../actions/user.actions';
+import CommentsFeed from '../CommentsFeed/CommentsFeed';
 
 export interface IAppUser {
 	/** User name */
@@ -81,7 +81,7 @@ class App extends Component<any, IAppState> {
 					/>
 				</Module>
 				<Module id="Comments">
-					<AppComments
+					<CommentsFeed
 						isLoading={this.props.comments.isLoading}
 						commentForm={this.state.commentForm}
 						comments={this.props.comments.data}

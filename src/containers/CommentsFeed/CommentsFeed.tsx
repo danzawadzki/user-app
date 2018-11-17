@@ -5,7 +5,7 @@ import React from 'react';
 import { IComment } from '../../components/Comment/Comment';
 import WithLoader from '../../components/WithLoader/WithLoader';
 
-export interface IAppComments {
+export interface ICommentsFeed {
 	/** Comments array */
 	comments?: IComment[];
 	/** Value of comment form */
@@ -17,10 +17,15 @@ export interface IAppComments {
 }
 
 /**
- * AppComments component. Contains accordion component and message input to place new posts.
+ * Comments feed component. Contains accordion component and message input to place new posts.
  * @constructor
  */
-const AppComments = ({ comments, commentForm, onChange, onSubmit }: IAppComments) => (
+const CommentsFeed: React.StatelessComponent<ICommentsFeed> = ({
+	comments,
+	commentForm,
+	onChange,
+	onSubmit
+}) => (
 	<>
 		<Accordion
 			heading={{
@@ -39,4 +44,4 @@ const AppComments = ({ comments, commentForm, onChange, onSubmit }: IAppComments
 	</>
 );
 
-export default WithLoader(AppComments);
+export default WithLoader(CommentsFeed);

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentsFeed component:  should render match snapshot 1`] = `
+<WithLoading
+  commentForm="Test"
+  isLoading={false}
+  onChange={[MockFunction]}
+  onSubmit={[MockFunction]}
+>
+  <CommentsFeed
+    commentForm="Test"
+    onChange={[MockFunction]}
+    onSubmit={[MockFunction]}
+  >
+    <Accordion
+      heading={
+        Object {
+          "off": "Show comments (0)",
+          "on": "Hide comments (0)",
+        }
+      }
+    >
+      <div
+        className="Accordion"
+      >
+        <a
+          className="Accordion__heading"
+          onClick={[Function]}
+        >
+          Hide comments (0)
+        </a>
+        <div
+          className="Accordion__body Accordion__body--visible"
+        >
+          <CommentsList>
+            <p
+              className="CommentsList__message"
+            >
+              No comments...
+            </p>
+          </CommentsList>
+        </div>
+      </div>
+    </Accordion>
+    <MessageInput
+      id="commentForm"
+      onChange={[MockFunction]}
+      onSubmit={[MockFunction]}
+      placeholder="Add a comment..."
+      value="Test"
+    >
+      <form
+        className="MessageInput"
+        onSubmit={[MockFunction]}
+      >
+        <input
+          className="MessageInput__input"
+          id="commentForm"
+          onChange={[MockFunction]}
+          placeholder="Add a comment..."
+          value="Test"
+        />
+      </form>
+    </MessageInput>
+  </CommentsFeed>
+</WithLoading>
+`;

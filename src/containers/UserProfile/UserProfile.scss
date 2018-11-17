@@ -1,0 +1,15 @@
+.userProfile {
+	&__counters {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+}
+
+@media (max-width: 32rem) {
+	.userProfile__counters {
+		flex-direction: column;
+	}
+}

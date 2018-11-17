@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { connect } from 'react-redux';
-import AppUserProfile from './AppUserProfile';
 import Module from '../../components/Module/Module';
 import { IAvatarSrc } from '../../components/Avatar/Avatar';
 import { ICounter } from '../../components/Counter/Counter';
 import { addComment, fetchComments } from '../../actions/comments.actions';
 import { fetchUser, incrementUserCounter } from '../../actions/user.actions';
 import CommentsFeed from '../CommentsFeed/CommentsFeed';
+import UserProfile from '../UserProfile/UserProfile';
 
 export interface IAppUser {
 	/** User name */
@@ -74,7 +74,7 @@ class App extends Component<any, IAppState> {
 		return (
 			<div className="App">
 				<Module id="UserProfile">
-					<AppUserProfile
+					<UserProfile
 						handleIncrement={this.props.incrementUserCounter}
 						isLoading={this.props.user.isLoading}
 						user={this.props.user.data}

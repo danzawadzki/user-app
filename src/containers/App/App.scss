@@ -14,27 +14,11 @@
 	display: flex;
 	flex-direction: column;
 
-	& .userProfile__counters {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-	}
-
 	#UserProfile {
 		flex-grow: 0;
 	}
 	#Comments {
 		flex-grow: 1;
 		overflow: scroll;
-	}
-}
-
-@media (max-width: 32rem) {
-	.App {
-		& .userProfile__counters {
-			flex-direction: column;
-		}
 	}
 }

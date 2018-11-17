@@ -2,6 +2,7 @@ import Accordion from '../Accordion/Accordion';
 import CommentsList from '../../components/CommentsList/CommentsList';
 import MessageInput from '../../components/MessageInput/MessageInput';
 import React from 'react';
+import './CommentsFeed.scss';
 import { IComment } from '../../components/Comment/Comment';
 import WithLoader from '../../components/WithLoader/WithLoader';
 

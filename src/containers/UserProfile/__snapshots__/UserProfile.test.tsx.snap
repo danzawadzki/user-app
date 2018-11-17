@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile component:  should render match snapshot 1`] = `
+<WithLoading
+  handleIncrement={[MockFunction]}
+  isLoading={false}
+  user={
+    Object {
+      "avatar": Object {
+        "large": "https://randomuser.me/api/portraits/men/1.jpg",
+        "regular": "https://randomuser.me/api/portraits/med/men/1.jpg",
+        "small": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
+      },
+      "counters": Array [
+        Object {
+          "label": "Follow",
+          "number": 0,
+        },
+      ],
+      "id": 1,
+      "location": "Los Angeles, USA",
+      "name": "Harvey Specter",
+    }
+  }
+>
+  <UserProfile
+    handleIncrement={[MockFunction]}
+    user={
+      Object {
+        "avatar": Object {
+          "large": "https://randomuser.me/api/portraits/men/1.jpg",
+          "regular": "https://randomuser.me/api/portraits/med/men/1.jpg",
+          "small": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
+        },
+        "counters": Array [
+          Object {
+            "label": "Follow",
+            "number": 0,
+          },
+        ],
+        "id": 1,
+        "location": "Los Angeles, USA",
+        "name": "Harvey Specter",
+      }
+    }
+  >
+    <UserCard
+      avatar={
+        Object {
+          "large": "https://randomuser.me/api/portraits/men/1.jpg",
+          "regular": "https://randomuser.me/api/portraits/med/men/1.jpg",
+          "small": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
+        }
+      }
+      location="Los Angeles, USA"
+      name="Harvey Specter"
+      onHeartClick={[Function]}
+    >
+      <div
+        className="UserCard"
+      >
+        <div
+          className="UserCard__avatar"
+        >
+          <Avatar
+            avatar={
+              Object {
+                "large": "https://randomuser.me/api/portraits/men/1.jpg",
+                "regular": "https://randomuser.me/api/portraits/med/men/1.jpg",
+                "small": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
+              }
+            }
+            name="Harvey Specter"
+          >
+            <div
+              className="Avatar "
+            >
+              <img
+                alt="Harvey Specter avatar"
+                className="Avatar__image "
+                srcSet="https://randomuser.me/api/portraits/thumb/men/1.jpg 480w, https://randomuser.me/api/portraits/med/men/1.jpg 960w, https://randomuser.me/api/portraits/men/1.jpg 1280w"
+              />
+            </div>
+          </Avatar>
+        </div>
+        <div
+          className="UserCard__details"
+        >
+          <div
+            className="details"
+          >
+            <h1
+              className="details__name"
+            >
+              Harvey Specter
+               
+              <span
+                className="details__name--lighter"
+                onClick={[Function]}
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Array [
+                      "far",
+                      "heart",
+                    ]
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-heart fa-w-16 "
+                    data-icon="heart"
+                    data-prefix="far"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon>
+              </span>
+            </h1>
+            <p
+              className="details__location"
+            >
+              Los Angeles, USA
+            </p>
+          </div>
+        </div>
+      </div>
+    </UserCard>
+    <div
+      className="userProfile__counters"
+    >
+      <CountersList
+        counters={
+          Array [
+            Object {
+              "label": "Follow",
+              "number": 0,
+            },
+          ]
+        }
+      >
+        <ul
+          className="CountersList"
+        >
+          <li
+            className="CountersList__item"
+            key="counter-0"
+          >
+            <Counter
+              label="Follow"
+              number={0}
+            >
+              <div
+                className="Counter"
+              >
+                <span
+                  className="Counter__number"
+                >
+                  0
+                </span>
+                <span
+                  className="Counter__label"
+                >
+                  Follow
+                </span>
+              </div>
+            </Counter>
+          </li>
+        </ul>
+      </CountersList>
+      <Button
+        id="follow"
+        onClick={[Function]}
+      >
+        <button
+          className="Button false"
+          onClick={[Function]}
+          type="button"
+        >
+          Follow
+        </button>
+      </Button>
+    </div>
+  </UserProfile>
+</WithLoading>
+`;

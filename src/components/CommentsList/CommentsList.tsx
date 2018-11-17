@@ -13,7 +13,7 @@ export interface IComments {
  * @version 1.0.0
  */
 const CommentsList = ({ comments = [] }: IComments) => {
-	if (comments.length === 0) {
+	if (!comments || comments.length === 0) {
 		return <p className="CommentsList__message">No comments...</p>;
 	}
 	return (

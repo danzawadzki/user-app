@@ -3,20 +3,22 @@ import './Comment.scss';
 import Avatar from '../Avatar/Avatar';
 import { timeAgo } from '../../utilities/helpers/date.helpers';
 
+export interface ICommentAuthor {
+	/** Object containing avatar urls. */
+	avatar?: {
+		/** Optional image url for small screen devices (screen < 600px) */
+		small?: string;
+		/** Required image ulr for medium screen devices (600px =< dev <= 1600px) or all else if not provided. */
+		regular?: string;
+		/** Optional image url for large screen devices (1900px < screen) */
+		large?: string;
+	};
+	name: string;
+}
+
 export interface IComment {
 	/** Comment author object */
-	author: {
-		/** Object containing avatar urls. */
-		avatar?: {
-			/** Optional image url for small screen devices (screen < 600px) */
-			small?: string;
-			/** Required image ulr for medium screen devices (600px =< dev <= 1600px) or all else if not provided. */
-			regular?: string;
-			/** Optional image url for large screen devices (1900px < screen) */
-			large?: string;
-		};
-		name: string;
-	};
+	author: ICommentAuthor;
 	/** Content of the comment.  */
 	comment: string;
 	/** Comment timestamp */

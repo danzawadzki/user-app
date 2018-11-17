@@ -44,3 +44,15 @@ export const timeAgo = (prevDate: Date, nextDate: Date): string => {
 	// Return seconds
 	return Math.floor(seconds) + 's';
 };
+
+/**
+ * Helper function creates a timestamp in the standard consisted with the database.
+ *
+ */
+export const getTimestamp = (date = new Date()) => {
+	return (
+		[date.getHours(), date.getMinutes(), date.getSeconds()].join(':') +
+		' ' +
+		[date.getMonth() + 1, date.getDate(), date.getFullYear()].join('/')
+	);
+};

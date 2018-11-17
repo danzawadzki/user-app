@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.scss';
+import { connect } from 'react-redux';
 import AppUserProfile from './AppUserProfile';
 import AppComments from './AppComments';
-import { IComment } from '../../components/Comment/Comment';
 import Module from '../../components/Module/Module';
 import { IAvatarSrc } from '../../components/Avatar/Avatar';
 import { ICounter } from '../../components/Counter/Counter';
+import { addComment, fetchComments } from '../../actions/comments.actions';
 
 export interface IAppUser {
 	/** User name */
@@ -25,51 +26,28 @@ export interface IAppState {
 		isLoading: boolean;
 		payload: IAppUser;
 	};
-	comments: {
-		isLoading: boolean;
-		payload: IComment[] | [];
-	};
 }
 
-export default class App extends Component<any, IAppState> {
+class App extends Component<any, IAppState> {
 	/**
 	 * Handler to form onSubmit event.
 	 * @param e
 	 */
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		// Spreading state and props
+		const { commentForm, user } = this.state;
+		const { addComment } = this.props;
 
-		if (this.state.commentForm) {
-			// Creating date
-			const today = new Date();
-			const timestamp =
-				[today.getHours(), today.getMinutes(), today.getSeconds()].join(':') +
-				' ' +
-				[today.getMonth() + 1, today.getDate(), today.getFullYear()].join('/');
-
-			// Spreading comments payload and creating new
-			const comments = {
-				isLoading: false,
-				payload: [
-					...this.state.comments.payload,
-					{
-						author: {
-							avatar: this.state.user.payload.avatar,
-							name: this.state.user.payload.name
-						},
-						comment: this.state.commentForm ? this.state.commentForm : '',
-						timestamp
-					}
-				]
-			};
-
-			this.setState({
-				commentForm: '',
-				comments
-			});
-		} else {
-			console.log('Type something!');
+		// Validate if comment contains body
+		if (!commentForm) {
+			return console.log('Type something!');
 		}
+		addComment({ avatar: user.payload.avatar, name: user.payload.name }, commentForm);
+		// Setting up state
+		this.setState({
+			commentForm: ''
+		});
 	};
 
 	constructor(props: any) {
@@ -80,10 +58,6 @@ export default class App extends Component<any, IAppState> {
 			user: {
 				isLoading: true,
 				payload: { name: '', location: '', avatar: {}, counters: [] }
-			},
-			comments: {
-				isLoading: true,
-				payload: []
 			}
 		};
 	}
@@ -129,6 +103,8 @@ export default class App extends Component<any, IAppState> {
 	};
 
 	async componentDidMount() {
+		console.log(this.props);
+		this.props.fetchComments();
 		// Fetching user profile info
 		const userResponse = await fetch('http://localhost:8080/users/1').then(res =>
 			res.json()
@@ -138,18 +114,6 @@ export default class App extends Component<any, IAppState> {
 			user: {
 				isLoading: false,
 				payload: userResponse
-			}
-		}));
-
-		// Fetching user profile comments
-		const commentsResponse = await fetch('http://localhost:8080/comments').then(res =>
-			res.json()
-		);
-
-		this.setState(() => ({
-			comments: {
-				isLoading: false,
-				payload: commentsResponse
 			}
 		}));
 	}
@@ -166,9 +130,9 @@ export default class App extends Component<any, IAppState> {
 				</Module>
 				<Module id="Comments">
 					<AppComments
-						isLoading={this.state.comments.isLoading}
+						isLoading={this.props.comments.isLoading}
 						commentForm={this.state.commentForm}
-						comments={this.state.comments.payload}
+						comments={this.props.comments.data}
 						onChange={this.handleChange}
 						onSubmit={this.handleSubmit}
 					/>
@@ -177,3 +141,21 @@ export default class App extends Component<any, IAppState> {
 		);
 	}
 }
+
+/**
+ * Mapping redux state to props.
+ *
+ */
+const mapStateToProps = (state: any) => {
+	return {
+		comments: state.fetchCommentsReducer
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	{
+		fetchComments,
+		addComment
+	}
+)(App);

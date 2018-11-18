@@ -1,0 +1,15 @@
+@import '../../assets/styles/colors';
+
+.ErrorBoundary {
+	&__heading {
+		color: $brand--accent;
+		text-align: center;
+		font-size: 3rem;
+		margin: 1rem;
+	}
+
+	&__subheading {
+		color: $brand--main;
+		text-align: center;
+	}
+}

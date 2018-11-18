@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary component:  should render match snapshot 1`] = `
+<p
+  className="test"
+>
+  Test
+</p>
+`;

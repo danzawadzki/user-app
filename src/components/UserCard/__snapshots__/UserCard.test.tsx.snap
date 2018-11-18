@@ -29,34 +29,12 @@ exports[`UserCard component:  should render match snapshot 1`] = `
       >
         Random User
          
-        <span
-          className="details__name--lighter"
+        <Icon
+          color="gray"
+          name="heart"
           onClick={[Function]}
-        >
-          <FontAwesomeIcon
-            border={false}
-            className=""
-            fixedWidth={false}
-            flip={null}
-            icon={
-              Array [
-                "far",
-                "heart",
-              ]
-            }
-            inverse={false}
-            listItem={false}
-            mask={null}
-            pull={null}
-            pulse={false}
-            rotation={null}
-            size={null}
-            spin={false}
-            symbol={false}
-            title=""
-            transform={null}
-          />
-        </span>
+          type="far"
+        />
       </h1>
       <p
         className="details__location"

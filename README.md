@@ -16,6 +16,7 @@ An application displaying a user profile with comments.
 ## 📝 Architectural decisions
 
 The project was to use the best React assumptions in the form of focusing on the division into as many components as possible. Each component has been provided with:
+
 1. `.tsx` file with component logic and static typing.
 2. `.scss` file with separated styles.
 3. `.test.tsx` file with unit tests.
@@ -77,7 +78,8 @@ Runs source-map-explorer to show, where code bloat is coming from. To analyze th
 
 List of the things to add and errors to remove in the project.
 
-[coming...]
+1. Add a wrapper (hoc) for the basic element animation with the React-Transition-Group library.
+2. Test redux reducers and actions.
 
 ## ✋ Social profiles:
 

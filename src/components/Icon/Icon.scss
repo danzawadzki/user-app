@@ -1,0 +1,29 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/minor';
+
+.Icon {
+	z-index: 1000;
+	font-size: 1.25rem;
+	transition: $transition--default;
+	margin: 0 0.5rem;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&--gray {
+		color: $gray--light;
+
+		&:hover {
+			color: red;
+		}
+	}
+
+	&--orange {
+		color: $orange;
+
+		&:hover {
+			color: $orange;
+		}
+	}
+}

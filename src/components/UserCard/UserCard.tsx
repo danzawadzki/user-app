@@ -1,9 +1,7 @@
 import * as React from 'react';
 import './UserCard.scss';
 import Avatar, { IAvatarSrc } from '../Avatar/Avatar';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Icon from '../Icon/Icon';
 
 export interface IUserCard {
 	/** User name */
@@ -27,13 +25,6 @@ const UserCard: React.StatelessComponent<IUserCard> = ({
 	avatar,
 	onHeartClick
 }) => {
-	/**
-	 * Registering font-awesome in the library
-	 *
-	 * @source https://fontawesome.com/how-to-use/on-the-web/using-with/react
-	 */
-	library.add(faHeart);
-
 	return (
 		<div className="UserCard">
 			<div className="UserCard__avatar">
@@ -43,9 +34,12 @@ const UserCard: React.StatelessComponent<IUserCard> = ({
 				<div className="details">
 					<h1 className="details__name">
 						{name}{' '}
-						<span className="details__name--lighter" onClick={onHeartClick}>
-							<FontAwesomeIcon icon={['far', 'heart']} />
-						</span>
+						<Icon
+							name="heart"
+							type="far"
+							color="gray"
+							onClick={onHeartClick}
+						/>
 					</h1>
 					<p className="details__location">{location}</p>
 				</div>

@@ -11,4 +11,11 @@
 	min-width: 100%;
 	box-sizing: border-box;
 	margin-bottom: 1rem;
+	position: relative;
+
+	&__actions {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+	}
 }

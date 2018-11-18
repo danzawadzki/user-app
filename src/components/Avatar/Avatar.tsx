@@ -24,7 +24,11 @@ export interface IAvatar {
  *
  * @version 1.0.0
  */
-const Avatar = ({ name, isSmaller = false, avatar }: IAvatar) => {
+const Avatar: React.StatelessComponent<IAvatar> = ({
+	name,
+	isSmaller = false,
+	avatar
+}) => {
 	// Creating srcSet
 	let srcSet = '';
 	if (avatar) {

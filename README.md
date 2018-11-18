@@ -77,12 +77,7 @@ Runs source-map-explorer to show, where code bloat is coming from. To analyze th
 
 List of the things to add and errors to remove in the project.
 
-1. Get rid of the nested state in the App.tsx component. The easiest way to do this is by using flux architecture (the work already takes place on the branch `redux-integration`)
-2. Divide the App.tsx container into several independent components, that are not part of the view.
-3. Add sorting of comments by publishing dates.
-4. Separate data fetching module.
-5. Improve accessibility for people with disabilities.
-6. Rise application test coverage to at least 75% and update interactive tests.
+[coming...]
 
 ## ✋ Social profiles:
 

@@ -13,7 +13,7 @@ export interface ICounter {
  *
  * @version 1.0.0
  */
-const Counter = ({ number = 0, label }: ICounter) => (
+const Counter: React.StatelessComponent<ICounter> = ({ number = 0, label }) => (
 	<div className="Counter">
 		<span className="Counter__number">{number}</span>
 		<span className="Counter__label">{label}</span>

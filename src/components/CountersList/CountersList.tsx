@@ -12,7 +12,7 @@ export interface ICountersList {
  *
  * @version 1.0.0
  */
-const CountersList = ({ counters = [] }: ICountersList) => {
+const CountersList: React.StatelessComponent<ICountersList> = ({ counters = [] }) => {
 	if (counters.length === 0) {
 		return <p className="CountersList__message">No counters...</p>;
 	}

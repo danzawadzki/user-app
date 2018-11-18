@@ -52,8 +52,7 @@ export const user: Reducer<IUserState, IAction> = (
 			return {
 				...state,
 				error: true,
-				isLoading: false,
-				data: null
+				isLoading: false
 			};
 		case userConstants.INCREMENT_USER_COUNTER:
 			// Deep clone of the user object (not the quickest way, but making correct deep copy).

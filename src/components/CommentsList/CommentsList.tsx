@@ -12,7 +12,7 @@ export interface IComments {
  *
  * @version 1.0.0
  */
-const CommentsList = ({ comments = [] }: IComments) => {
+const CommentsList: React.StatelessComponent<IComments> = ({ comments = [] }) => {
 	if (!comments || comments.length === 0) {
 		return <p className="CommentsList__message">No comments...</p>;
 	}

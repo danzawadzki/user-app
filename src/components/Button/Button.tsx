@@ -17,7 +17,12 @@ export interface IButton {
  *
  * @version 1.0.0
  */
-const Button = ({ id, isFullWidth = false, children, onClick }: IButton) => (
+const Button: React.StatelessComponent<IButton> = ({
+	id,
+	isFullWidth = false,
+	children,
+	onClick
+}) => (
 	<button
 		type="button"
 		className={`Button ${isFullWidth && 'Button--fullWidth'}`}

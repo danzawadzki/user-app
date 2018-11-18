@@ -27,6 +27,10 @@ export interface IAccordionState {
  * @version 1.0.0
  */
 export default class Accordion extends Component<IAccordionProps, IAccordionState> {
+	state = {
+		isOpen: true
+	};
+
 	/**
 	 * Function to handle visibility flag toggling
 	 */
@@ -35,14 +39,6 @@ export default class Accordion extends Component<IAccordionProps, IAccordionStat
 			isOpen: !prevState.isOpen
 		}));
 	};
-
-	constructor(props: IAccordionProps) {
-		super(props);
-
-		this.state = {
-			isOpen: true
-		};
-	}
 
 	render() {
 		const { heading, children } = this.props;

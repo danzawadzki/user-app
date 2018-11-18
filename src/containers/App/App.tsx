@@ -8,6 +8,7 @@ import { addComment, fetchComments } from '../../actions/comments.actions';
 import { fetchUser, incrementUserCounter } from '../../actions/user.actions';
 import CommentsFeed from '../CommentsFeed/CommentsFeed';
 import UserProfile from '../UserProfile/UserProfile';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 export interface IAppUser {
 	/** User name */
@@ -72,24 +73,27 @@ class App extends Component<any, IAppState> {
 
 	render() {
 		return (
-			<div className="App">
-				<Module id="UserProfile">
-					<UserProfile
-						handleIncrement={this.props.incrementUserCounter}
-						isLoading={this.props.user.isLoading}
-						user={this.props.user.data}
-					/>
-				</Module>
-				<Module id="Comments">
-					<CommentsFeed
-						isLoading={this.props.comments.isLoading}
-						commentForm={this.state.commentForm}
-						comments={this.props.comments.data}
-						onChange={this.handleChange}
-						onSubmit={this.handleSubmit}
-					/>
-				</Module>
-			</div>
+			<ErrorBoundary hasError={this.props.error.hasError}>
+				<div className="App">
+					<Module id="UserProfile">
+						<UserProfile
+							handleIncrement={this.props.incrementUserCounter}
+							isLoading={this.props.user.isLoading}
+							user={this.props.user.data}
+						/>
+					</Module>
+					x
+					<Module id="Comments">
+						<CommentsFeed
+							isLoading={this.props.comments.isLoading}
+							commentForm={this.state.commentForm}
+							comments={this.props.comments.data}
+							onChange={this.handleChange}
+							onSubmit={this.handleSubmit}
+						/>
+					</Module>
+				</div>
+			</ErrorBoundary>
 		);
 	}
 }
@@ -100,7 +104,8 @@ class App extends Component<any, IAppState> {
 const mapStateToProps = (state: any) => {
 	return {
 		comments: state.comments,
-		user: state.user
+		user: state.user,
+		error: state.error
 	};
 };
 

@@ -21,7 +21,12 @@ export interface IUserCard {
  *
  * @version 1.0.0
  */
-const UserCard = ({ name, location = 'Unknown', avatar, onHeartClick }: IUserCard) => {
+const UserCard: React.StatelessComponent<IUserCard> = ({
+	name,
+	location = 'Unknown',
+	avatar,
+	onHeartClick
+}) => {
 	/**
 	 * Registering font-awesome in the library
 	 *

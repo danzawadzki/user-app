@@ -14,7 +14,7 @@ export interface IModule {
  *
  * @version 1.0.0
  */
-const Module = ({ id, children }: IModule) => (
+const Module: React.StatelessComponent<IModule> = ({ id, children }) => (
 	<div id={id || ''} className="Module">
 		{children}
 	</div>

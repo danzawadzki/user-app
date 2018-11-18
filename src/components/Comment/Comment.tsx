@@ -30,7 +30,11 @@ export interface IComment {
  *
  * @version 1.0.0
  */
-const Comment = ({ author: { avatar, name }, comment, timestamp }: IComment) => {
+const Comment: React.StatelessComponent<IComment> = ({
+	author: { avatar, name },
+	comment,
+	timestamp
+}) => {
 	return (
 		<div className="Comment">
 			<div className="Comment__header">

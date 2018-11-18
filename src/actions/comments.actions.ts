@@ -3,6 +3,7 @@ import { api } from '../services/api';
 import { Action, Dispatch } from 'redux';
 import { IComment, ICommentAuthor } from '../components/Comment/Comment';
 import { getTimestamp } from '../utilities/helpers/date.helpers';
+import { hasError } from './error.actions';
 
 /** New comment interface */
 export interface ICommentNew {
@@ -33,6 +34,7 @@ export const fetchComments = () => async (dispatch: Dispatch<Action>) => {
 	} catch (e) {
 		/** Dispatching error action with response as a error message */
 		dispatch({ type: commentsConstants.FETCH_COMMENTS_ERROR, payload: e });
+		dispatch(hasError());
 	}
 };
 

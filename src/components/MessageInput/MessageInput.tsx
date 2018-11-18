@@ -19,13 +19,13 @@ export interface IMessageInput {
  *
  * @version 1.0.0
  */
-const MessageInput = ({
+const MessageInput: React.StatelessComponent<IMessageInput> = ({
 	value = '',
 	id,
 	placeholder = 'Type...',
 	onChange,
 	onSubmit
-}: IMessageInput) => {
+}) => {
 	return (
 		<form className="MessageInput" onSubmit={onSubmit}>
 			<input

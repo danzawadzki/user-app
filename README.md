@@ -1,5 +1,8 @@
 An application displaying a user profile with comments.
 
+[Live Preview](https://user-app-react-ts.herokuapp.com/)<br/>
+<sub><sup>You may notice speed drop during first load, as app is deployed with heroku free tier. Which unused falls asleep and needs a moment to run the process again.</sup></sub>
+
 ## ‍💻 Technologies & related stuff
 
 1. React

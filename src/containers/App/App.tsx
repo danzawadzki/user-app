@@ -5,13 +5,12 @@ import Module from '../../components/Module/Module';
 import { IAvatarSrc } from '../../components/Avatar/Avatar';
 import { ICounter } from '../../components/Counter/Counter';
 import { fetchComments } from '../../actions/comments.actions';
-import { fetchUser, incrementUserCounter } from '../../actions/user.actions';
+import { fetchUser } from '../../actions/user.actions';
 import CommentsFeed from '../CommentsFeed/CommentsFeed';
 import UserProfile from '../UserProfile/UserProfile';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Icon from '../../components/Icon/Icon';
 import { IErrorState } from '../../reducers/error.reducer';
-import { IUserState } from '../../reducers/user.reducer';
 
 export interface IAppUser {
 	/** User name */
@@ -27,11 +26,9 @@ export interface IAppUser {
 export interface IAppState {}
 
 export interface IAppProps {
-	user: IUserState;
 	error: IErrorState;
 	fetchUser: () => void;
 	fetchComments: () => void;
-	incrementUserCounter: (label: string) => void;
 }
 
 class App extends Component<IAppProps, IAppState> {
@@ -57,11 +54,7 @@ class App extends Component<IAppProps, IAppState> {
 								onClick={() => alert(window.location.href)}
 							/>
 						}>
-						<UserProfile
-							handleIncrement={this.props.incrementUserCounter}
-							isLoading={this.props.user.isLoading}
-							user={this.props.user.data}
-						/>
+						<UserProfile />
 					</Module>
 					<Module id="Comments">
 						<CommentsFeed />
@@ -77,8 +70,6 @@ class App extends Component<IAppProps, IAppState> {
  */
 const mapStateToProps = (state: any) => {
 	return {
-		comments: state.comments,
-		user: state.user,
 		error: state.error
 	};
 };
@@ -87,7 +78,6 @@ export default connect(
 	mapStateToProps,
 	{
 		fetchUser,
-		fetchComments,
-		incrementUserCounter
+		fetchComments
 	}
 )(App);

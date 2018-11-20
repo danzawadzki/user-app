@@ -1,29 +1,36 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import UserProfile from './UserProfile';
+import createMockStore from 'redux-mock-store';
+import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
 describe('UserProfile component: ', () => {
 	// Shallow rendered component
-	const user = {
-		id: 1,
-		location: 'Los Angeles, USA',
-		name: 'Harvey Specter',
-		avatar: {
-			large: 'https://randomuser.me/api/portraits/men/1.jpg',
-			regular: 'https://randomuser.me/api/portraits/med/men/1.jpg',
-			small: 'https://randomuser.me/api/portraits/thumb/men/1.jpg'
-		},
-		counters: [{ label: 'Follow', number: 0 }]
+	const mockStore = createMockStore([ReduxThunk]);
+	const initialState = {
+		user: {
+			isLoading: false,
+			data: {
+				id: 1,
+				location: 'Los Angeles, USA',
+				name: 'Harvey Specter',
+				avatar: {
+					large: 'https://randomuser.me/api/portraits/men/1.jpg',
+					regular: 'https://randomuser.me/api/portraits/med/men/1.jpg',
+					small: 'https://randomuser.me/api/portraits/thumb/men/1.jpg'
+				},
+				counters: [{ label: 'Follow', number: 0 }]
+			}
+		}
+		//incrementUserCounter: jest.fn();
 	};
-	const isLoading = false;
-	const handleIncrement = jest.fn();
+	const store = mockStore(initialState);
 
 	const component = mount(
-		<UserProfile
-			handleIncrement={handleIncrement}
-			isLoading={isLoading}
-			user={user}
-		/>
+		<Provider store={store}>
+			<UserProfile />
+		</Provider>
 	);
 
 	it('should render match snapshot', () => {
@@ -31,15 +38,11 @@ describe('UserProfile component: ', () => {
 	});
 
 	it('should contain all props', () => {
-		expect(component.html()).toContain(user.name);
-		expect(component.html()).toContain(user.location);
+		expect(component.html()).toContain(initialState.user.data.name);
+		expect(component.html()).toContain(initialState.user.data.location);
+		expect(component.find('.Counter__number').text()).toContain(
+			initialState.user.data.counters[0].number
+		);
 		expect(component.find('img')).toBeTruthy();
-	});
-
-	it('should fire handleIncrement func on button click', () => {
-		expect(handleIncrement).toHaveBeenCalledTimes(0);
-		expect(component.find('#follow')).toBeTruthy();
-		expect(component.find('#follow').simulate('click'));
-		expect(handleIncrement).toHaveBeenCalledTimes(1);
 	});
 });

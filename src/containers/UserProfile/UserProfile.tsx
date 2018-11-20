@@ -5,20 +5,22 @@ import CountersList from '../../components/CountersList/CountersList';
 import Button from '../../components/Button/Button';
 import { IAppUser } from '../App/App';
 import WithLoader from '../../components/WithLoader/WithLoader';
+import { incrementUserCounter } from '../../actions/user.actions';
+import { connect } from 'react-redux';
 
-export interface IAppUserProfile {
+export interface IUserProfileProps {
 	/** User profile */
 	user: IAppUser;
 	/** Function to increment counter */
-	handleIncrement: (label: string) => void;
+	incrementUserCounter: (label: string) => void;
 }
 
 /**
  * User Profile component
  */
-const UserProfile: React.StatelessComponent<IAppUserProfile> = ({
+const UserProfile: React.StatelessComponent<IUserProfileProps> = ({
 	user,
-	handleIncrement
+	incrementUserCounter
 }) => {
 	return (
 		<>
@@ -26,11 +28,11 @@ const UserProfile: React.StatelessComponent<IAppUserProfile> = ({
 				name={user.name}
 				location={user.location}
 				avatar={user.avatar}
-				onHeartClick={() => handleIncrement('likes')}
+				onHeartClick={() => incrementUserCounter('likes')}
 			/>
 			<div className="userProfile__counters">
 				<CountersList counters={user.counters} />
-				<Button id="follow" onClick={() => handleIncrement('followers')}>
+				<Button id="follow" onClick={() => incrementUserCounter('followers')}>
 					Follow
 				</Button>
 			</div>
@@ -38,4 +40,19 @@ const UserProfile: React.StatelessComponent<IAppUserProfile> = ({
 	);
 };
 
-export default WithLoader(UserProfile);
+/**
+ * Mapping redux state to props.
+ */
+const mapStateToProps = (state: any) => {
+	return {
+		isLoading: state.user.isLoading,
+		user: state.user.data
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	{
+		incrementUserCounter
+	}
+)(WithLoader(UserProfile));
